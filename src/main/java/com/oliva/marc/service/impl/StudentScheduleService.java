@@ -33,8 +33,8 @@ public class StudentScheduleService implements IStudentScheduleService, Serializ
 	}
 	@Transactional
 	@Override
-	public void delete(StudentSchedule entity) {
-		studentScheduleRepository.delete(entity);
+	public void delete(Long id) {
+		studentScheduleRepository.deleteById(id);
 		
 	}
 	@Transactional

@@ -9,7 +9,7 @@ public interface ICrudService<T> {
 
 	T update(T entity);
 
-	void delete(T entity);
+	void delete(Long id);
 
 	List<T> findAll();
 

@@ -33,8 +33,8 @@ public class DayService implements IDayService, Serializable {
 	}
 	@Transactional
 	@Override
-	public void delete(Day entity) {
-		dayRepository.delete(entity);
+	public void delete(Long id) {
+		dayRepository.deleteById(id);
 		
 	}
 	@Transactional
