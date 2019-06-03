@@ -35,8 +35,8 @@ public class AssistanceService implements IAssistanceService, Serializable {
 
 	@Transactional
 	@Override
-	public void delete(Assistance entity) {
-		assistanceRepository.delete(entity);
+	public void delete(Long id) {
+		assistanceRepository.deleteById(id);
 		
 	}
 

@@ -33,8 +33,8 @@ public class EmpoweredService implements IEmpoweredService, Serializable {
 	}
 	@Transactional
 	@Override
-	public void delete(Empowered entity) {
-		empoweredRepository.delete(entity);
+	public void delete(Long id) {
+		empoweredRepository.deleteById(id);
 		
 	}
 	@Transactional

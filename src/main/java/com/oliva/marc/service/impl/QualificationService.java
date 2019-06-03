@@ -33,8 +33,8 @@ public class QualificationService implements IQualificationService, Serializable
 	}
 	@Transactional
 	@Override
-	public void delete(Qualification entity) {
-		qualificationRepository.delete(entity);
+	public void delete(Long id) {
+		qualificationRepository.deleteById(id);
 		
 	}
 	@Transactional

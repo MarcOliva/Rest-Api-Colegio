@@ -33,8 +33,8 @@ public class RequestService implements IRequestService, Serializable {
 	}
 	@Transactional
 	@Override
-	public void delete(Request entity) {
-		requestRepository.delete(entity);
+	public void delete(Long id) {
+		requestRepository.deleteById(id);
 		
 	}
 	@Transactional

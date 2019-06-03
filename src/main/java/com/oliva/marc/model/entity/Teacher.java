@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(description = "Información del profesor")
 @Entity
 @Table(name = "teachers")
 public class Teacher implements Serializable {

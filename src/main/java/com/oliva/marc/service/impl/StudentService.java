@@ -35,8 +35,8 @@ public class StudentService implements IStudentService, Serializable {
 
 	@Transactional
 	@Override
-	public void delete(Student entity) {
-		studentRepository.delete(entity);		
+	public void delete(Long id) {
+		studentRepository.deleteById(id);		
 	}
 
 	@Transactional

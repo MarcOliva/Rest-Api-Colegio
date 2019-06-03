@@ -33,8 +33,8 @@ public class TeacherService implements ITeacherService, Serializable {
 	}
 	@Transactional
 	@Override
-	public void delete(Teacher entity) {
-		teacherRepository.delete(entity);
+	public void delete(Long id) {
+		teacherRepository.deleteById(id);
 		
 	}
 	@Transactional

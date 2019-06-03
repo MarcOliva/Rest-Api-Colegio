@@ -33,8 +33,8 @@ public class EducationDegreeService implements IEducationDegreeService, Serializ
 	}
 	@Transactional
 	@Override
-	public void delete(EducationDegree entity) {
-		educationDegreeRepository.delete(entity);
+	public void delete(Long id) {
+		educationDegreeRepository.deleteById(id);
 		
 	}
 	@Transactional

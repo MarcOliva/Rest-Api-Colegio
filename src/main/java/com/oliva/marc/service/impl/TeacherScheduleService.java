@@ -35,9 +35,9 @@ public class TeacherScheduleService implements ITeacherScheduleService, Serializ
 
 	@Transactional
 	@Override
-	public void delete(TeacherSchedule entity) {
+	public void delete(Long id) {
 		
-		teacherScheduleRepository.save(entity);
+		teacherScheduleRepository.deleteById(id);
 	}
 
 	@Transactional

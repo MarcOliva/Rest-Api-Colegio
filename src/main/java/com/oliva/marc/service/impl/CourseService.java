@@ -33,8 +33,8 @@ public class CourseService implements ICourseService, Serializable {
 	}
 	@Transactional
 	@Override
-	public void delete(Course entity) {
-		courseRepository.delete(entity);
+	public void delete(Long id) {
+		courseRepository.deleteById(id);
 		
 	}
 	@Transactional
