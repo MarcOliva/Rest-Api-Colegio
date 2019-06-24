@@ -27,9 +27,9 @@ public class StudentSchedule implements Serializable {
 	@Column(name = "end_time", nullable = false)
 	private String endTime;
 	
-	@ManyToOne
-	@JoinColumn(name = "day_id", nullable = false)
-	private Day day;
+
+	@Column(name = "day", nullable = false)
+	private String day;
 	
 	@ManyToOne
 	@JoinColumn(name = "course_id", nullable = false)
@@ -63,11 +63,11 @@ public class StudentSchedule implements Serializable {
 		this.endTime = endTime;
 	}
 
-	public Day getDay() {
+	public String getDay() {
 		return day;
 	}
 
-	public void setDay(Day day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 
