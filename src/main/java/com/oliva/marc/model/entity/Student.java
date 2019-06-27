@@ -16,36 +16,36 @@ import javax.persistence.Table;
 public class Student implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
+	private Long id;
+
 	@Column(name = "name", length = 20, nullable = false)
 	private String name;
-	
+
 	@Column(name = "paternal_lastname", length = 20, nullable = false)
 	private String paternalLastname;
-	
-	@Column(name ="maternal_lastname", length = 20, nullable = false)
+
+	@Column(name = "maternal_lastname", length = 20, nullable = false)
 	private String maternalLastname;
-	
+
 	@Column(name = "dni", precision = 8, nullable = false)
 	private Integer dni;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "empowered_id", nullable = false)
 	private Empowered empowered;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "education_degree_id", nullable = false)
 	private EducationDegree educationDegree;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -26,13 +26,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api/apoderados")
+@RequestMapping("/apoderados")
 @Api(value = "Servicio Web RESTful de apoderados")
 public class EmpoweredController {
 
 	@Autowired
 	private IEmpoweredService empoweredService;
-	
+
 	@ApiOperation("Retorna una lista de apoderados")
 	@GetMapping
 	public ResponseEntity<List<Empowered>> listar() {
@@ -53,16 +53,13 @@ public class EmpoweredController {
 
 	@ApiOperation("Registra un apoderado")
 	@PostMapping
-	public ResponseEntity<Empowered> registrar(@RequestBody Empowered empowered){
+	public ResponseEntity<Empowered> registrar(@RequestBody Empowered empowered) {
 		Empowered empoweredNew = new Empowered();
 		empoweredNew = empoweredService.insert(empowered);
-		
-		URI location = ServletUriComponentsBuilder
-				.fromCurrentRequest()
-				.path("/{id}")
-				.buildAndExpand(empoweredNew.getId())
-				.toUri();
-		
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(empoweredNew.getId()).toUri();
+
 		return ResponseEntity.created(location).build();
 	}
 

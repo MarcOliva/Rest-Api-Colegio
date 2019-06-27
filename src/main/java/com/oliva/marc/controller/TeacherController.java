@@ -26,13 +26,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api/profesores")
+@RequestMapping("/profesores")
 @Api(value = "Servicio Web RESTful de profesores")
 public class TeacherController {
 
 	@Autowired
 	private ITeacherService teacherService;
-	
+
 	@ApiOperation("Retorna una lista de profesores")
 	@GetMapping
 	public ResponseEntity<List<Teacher>> listar() {
@@ -40,7 +40,7 @@ public class TeacherController {
 		teachers = teacherService.findAll();
 		return new ResponseEntity<List<Teacher>>(teachers, HttpStatus.OK);
 	}
-	
+
 	@ApiOperation("Retorna una lista de profesores por id")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Teacher> listarId(@PathVariable("id") Long id) {
@@ -50,19 +50,16 @@ public class TeacherController {
 		}
 		return new ResponseEntity<Teacher>(teacher.get(), HttpStatus.OK);
 	}
-	
+
 	@ApiOperation("Registra un profesor")
 	@PostMapping
-	public ResponseEntity<Teacher> registrar(@RequestBody Teacher teacher){
+	public ResponseEntity<Teacher> registrar(@RequestBody Teacher teacher) {
 		Teacher teacherNew = new Teacher();
 		teacherNew = teacherService.insert(teacher);
-		
-		URI location = ServletUriComponentsBuilder
-				.fromCurrentRequest()
-				.path("/{id}")
-				.buildAndExpand(teacherNew.getId())
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(teacherNew.getId())
 				.toUri();
-		
+
 		return ResponseEntity.created(location).build();
 	}
 
